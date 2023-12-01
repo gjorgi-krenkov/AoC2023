@@ -3,6 +3,8 @@
 #include <fstream>
 #include <ostream>
 
+#define cin infile
+#define cout outfile
 
 using namespace std;
 
