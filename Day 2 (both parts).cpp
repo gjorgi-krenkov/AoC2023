@@ -125,7 +125,7 @@ int main()
 
         if (!partTwo && isValid)
             res += gameId;
-        else
+        else if (partTwo)
             res += maxR * maxG * maxB;
 
         gameId++;
