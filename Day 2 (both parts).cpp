@@ -51,22 +51,17 @@ int main()
         int maxR = 0, maxG = 0, maxB = 0;
         for (int it = 0; it < inputLine.size(); it++)
         {
-            // cout << inputLine[it] << " ";
-
             if (inputLine[it] == ':')
             {
-                // cout << "semi" <<endl;
                 passedSemi = true;
                 continue;
             }
             if (!passedSemi)
             {
-                // cout << "Before semi" << endl;
                 continue;
             }
             if (!numberMode && inputLine[it] == ' ')
             { // empty before number
-                // cout << "before number" <<endl;
                 numberMode = true;
                 colorVariant = "";
                 number = 0;
@@ -74,13 +69,11 @@ int main()
             }
             if (!numberMode && (inputLine[it] == ',' || inputLine[it] == ';')) // end of definition
             {
-                // cout << "computation" <<endl;
                 if (partTwo)
                     computeMaxForVariant(maxR, maxG, maxB, colorVariant, number);
                 else
                 {
                     int cstr = getColorVariantConstraint(colorVariant);
-                    // cout << number << " " << colorVariant << " " << cstr << endl;
                     if (number > cstr)
                     {
                         isValid = false;
@@ -90,21 +83,17 @@ int main()
             }
             if (!numberMode)
             {
-                // cout << "colorVariant definition" <<endl;
                 colorVariant.push_back(inputLine[it]);
             }
             if (numberMode)
             {
                 if (inputLine[it] >= '0' && inputLine[it] <= '9')
                 {
-                    // cout << "Boosting number" << endl;
                     number *= 10;
                     number += inputLine[it] - '0';
                 }
                 if (inputLine[it] == ' ')
                 {
-                    // cout << "Switcihng from number to colorVariant" <<endl;
-                    // cout << number <<endl;
                     numberMode = false;
                 }
             }
